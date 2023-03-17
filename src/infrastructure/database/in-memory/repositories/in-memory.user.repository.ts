@@ -5,7 +5,7 @@ import { Injectable } from '@nestjs/common';
 import { GetUserParams } from 'src/utils/types/get-user-params.type';
 export const usersCollection = [
   {
-    id: '123',
+    id: '6411140675d34f753c8191ca',
     email: 'user1@example.com',
     lastname: 'user1',
     firstname: 'test',
@@ -14,7 +14,7 @@ export const usersCollection = [
     updatedAt: new Date(),
   },
   {
-    id: '1234',
+    id: '6412df35f7c2e3f40d44e2e7',
     email: 'user2@example.com',
     lastname: 'user2',
     firstname: 'test',

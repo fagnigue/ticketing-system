@@ -31,14 +31,14 @@ jobs:
     - name: Run unit test
       run: npm run test
       
-    - name: Create release version
-      id: create_release_version
-      run: |
-          npm run release -- --verbose --prerelease ${{ github.run_number }}
-          echo ::set-output name=release_tag::$(git tag | tail -1)
+    # - name: Create release version
+    #   id: create_release_version
+    #   run: |
+    #       npm run release -- --verbose --prerelease ${{ github.run_number }}
+    #       echo ::set-output name=release_tag::$(git tag | tail -1)
 
-    - name: Publish the integration temporary release version
-      id: publish_release_version
-      run: |
-        git push --force origin ${{ steps.create_release_version.outputs.release_tag }}
-        echo ::set-output name=tag_name::$(git describe HEAD --abbrev=0)
+    # - name: Publish the integration temporary release version
+    #   id: publish_release_version
+    #   run: |
+    #     git push --force origin ${{ steps.create_release_version.outputs.release_tag }}
+    #     echo ::set-output name=tag_name::$(git describe HEAD --abbrev=0)

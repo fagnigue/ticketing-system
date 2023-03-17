@@ -36,11 +36,11 @@ export class CancelReservationUseCase
       await this.reservationRepository.updateReservation(reservation);
 
     await this.mailService.sendCancelReservationNotification({
-      email: updatedReservation.user.email,
-      firstname: updatedReservation.user.firstname,
+      email: updatedReservation.user?.email,
+      firstname: updatedReservation.user?.firstname,
       reservationId: updatedReservation.id,
-      journeyLabel: updatedReservation.seat.journey.label,
-      journeyDepartureDate: updatedReservation.seat.journey.departureDate,
+      journeyLabel: updatedReservation.seat?.journey.label,
+      journeyDepartureDate: updatedReservation.seat?.journey.departureDate,
     });
 
     return { reservation: updatedReservation };

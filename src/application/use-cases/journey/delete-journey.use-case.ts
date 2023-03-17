@@ -18,8 +18,6 @@ export class DeleteJourneyUseCase
     const { journeyId } = data;
     const journey = await this.journeyRepository.getJourney(journeyId);
 
-    console.log(journey);
-
     if (!journey.id) {
       throw new HttpException(NotFound(Journey.name), HttpStatus.BAD_REQUEST);
     }
