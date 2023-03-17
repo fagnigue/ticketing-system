@@ -49,11 +49,11 @@ export class CreateReservationUseCase
       await this.reservationRepository.createReservation(reservation);
 
     await this.mailService.sendCreateReservationNotification({
-      email: createdReservation.user.email,
-      firstname: createdReservation.user.firstname,
+      email: createdReservation.user?.email,
+      firstname: createdReservation.user?.firstname,
       reservationId: createdReservation.id,
-      journeyLabel: createdReservation.seat.journey.label,
-      journeyDepartureDate: createdReservation.seat.journey.departureDate,
+      journeyLabel: createdReservation.seat?.journey.label,
+      journeyDepartureDate: createdReservation.seat?.journey.departureDate,
     });
 
     return { reservation: createdReservation };

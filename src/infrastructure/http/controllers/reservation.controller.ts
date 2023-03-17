@@ -28,7 +28,6 @@ import { ReservationMapper } from '../mappers/reservation.mapper';
 
 @Controller('reservations')
 @ApiTags('Reservations')
-@UseGuards(JwtAuthGuard)
 export class ReservationController {
   constructor(
     private readonly createReservationUseCase: CreateReservationUseCase,
@@ -50,6 +49,8 @@ export class ReservationController {
   }
 
   @Get()
+  @UseGuards(JwtAuthGuard)
+  @UseInterceptors(IdCheckInterceptor)
   async getReservations(
     @Query('userId') userId: string,
     @Query('journeyId') journeyId: string,

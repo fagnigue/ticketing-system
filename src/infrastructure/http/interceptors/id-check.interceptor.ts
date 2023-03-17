@@ -24,13 +24,14 @@ export class IdCheckInterceptor implements NestInterceptor {
       },
       {},
     );
-
-    for (const [key, value] of Object.entries(queryParamsId)) {
-      if (!IsCorrectIdLength(`${value}`)) {
-        throw new HttpException(
-          `${key} must be longer than or equal to 24 characters`,
-          HttpStatus.BAD_REQUEST,
-        );
+    if (Object.keys(queryParamsId).length === 0) {
+      for (const [key, value] of Object.entries(queryParamsId)) {
+        if (!IsCorrectIdLength(`${value}`)) {
+          throw new HttpException(
+            `${key} must be longer than or equal to 24 characters`,
+            HttpStatus.BAD_REQUEST,
+          );
+        }
       }
     }
 

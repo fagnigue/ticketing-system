@@ -4,6 +4,7 @@ import { Seat } from 'src/domain/entities/seat';
 import { UseCase } from '../use-case';
 
 export interface UpdateSeatUseCaseRequest {
+  id?: string;
   journeyId?: string;
 }
 

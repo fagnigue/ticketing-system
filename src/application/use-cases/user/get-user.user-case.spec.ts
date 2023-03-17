@@ -7,7 +7,7 @@ describe('GetUserUseCase', () => {
     const userRepository = new InMemoryUserRepository();
     const getUserUseCase = new GetUserUseCase(userRepository);
 
-    const userId = '123';
+    const userId = '6412df35f7c2e3f40d44e2e7';
     const response = await getUserUseCase.execute({ userId });
 
     expect(response.user).toBeInstanceOf(User);

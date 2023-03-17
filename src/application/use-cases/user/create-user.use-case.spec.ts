@@ -7,14 +7,14 @@ describe('CreateUserUseCase', () => {
     const userRepository = new InMemoryUserRepository();
     const createUserUseCase = new CreateUserUseCase(userRepository);
 
-    const request = {
+    const userCreateInput = {
       email: 'tebap20463@etondy.com',
       password: 'Tebap20463#',
       firstname: 'Teba',
       lastname: 'Parré',
     };
 
-    const response = await createUserUseCase.execute(request);
+    const response = await createUserUseCase.execute(userCreateInput);
 
     expect(response.user).toBeInstanceOf(User);
     expect(response.user.id).toBeDefined();
